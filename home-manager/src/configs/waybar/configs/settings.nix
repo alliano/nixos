@@ -1,4 +1,5 @@
-{ pkgs, ... }: [
+{ pkgs, ... }:
+[
   {
     output = [
       "eDP-1"

@@ -1,7 +1,8 @@
-{ config, ... }: rec{
+{ config, pkgs, ... }:
+rec {
   isEnableAutoStart = true;
   dirName = "hypr";
-  dir = builtins.toPath "/home/kim/.config/${dirName}";
+  dir = builtins.toPath "${config.home.homeDirectory}/.config/${dirName}";
   wallpaper = rec {
     name = "astralbed.png";
     path = builtins.toPath ./assets/${name};

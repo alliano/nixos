@@ -15,8 +15,8 @@ in
 lib.mkIf (isEnable) {
   environment.systemPackages = [
     vpn-chome
-    pkgs.gost
-    pkgs.tun2socks
+    pkgs.gost # use as proxy to redirect specific connection
+    pkgs.sshuttle # redirect all connection over ssh. need to combine with proxychains4 `pc sshuttle --dns -r user@ip -x 22 0/0`
   ];
 
   # warp vpn
@@ -25,6 +25,8 @@ lib.mkIf (isEnable) {
 
   # chaining proxy from another source
   programs.proxychains.enable = true;
+  programs.proxychains.proxyDNS = true; # Enables proxy DNS routing to prevent leaks
+  programs.proxychains.chain.type = "dynamic";
   programs.proxychains.proxies = {
     bri-http = {
       enable = false;

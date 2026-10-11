@@ -53,5 +53,4 @@
     nodePackages.typescript
     nodePackages.npm
   ];
-
 }
