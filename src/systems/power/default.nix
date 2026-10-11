@@ -22,6 +22,13 @@
     # Values: null or one of "min_power", "max_performance", "medium_power", "med_power_with_dipm"
     scsiLinkPolicy = "max_performance";
   };
+  # This i7-10610U is a 15W U-series part, so sustained loads (nixos-rebuild,
+  # compiles) hit the package power limit long before anything else. Without
+  # thermald the kernel's emergency throttle handles it with deep clock cuts;
+  # thermald steers RAPL/P-states down gradually instead, which keeps sustained
+  # throughput higher. Runs with --adaptive, i.e. the firmware's DPTF tables.
+  services.thermald.enable = true;
+
   services.tlp.enable = false;
   services.tlp.settings = lib.mkIf (config.services.tlp.enable) {
     CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
