@@ -29,7 +29,7 @@ in
         ignore_empty_input = true;
       };
       background = {
-        path = "${settings.dir}/astralbed.png";
+        path = "${settings.dir}/${settings.wallpaper.name}";
         blur_size = 8;
         blur_passes = 3;
       };

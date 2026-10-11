@@ -28,7 +28,8 @@ if (isEnable) then
     wayland.windowManager.hyprland.enable = settings.isEnableAutoStart;
     wayland.windowManager.hyprland.extraConfig = hyprlandConfig;
     wayland.windowManager.hyprland.systemd.variables = [ "--all" ];
-    home.file.".config/${settings.dirName}/wallpaper.png".source = settings.wallpaper.path;
+    home.file.".config/${settings.dirName}/${settings.wallpaper.name}".source =
+      settings.wallpaper.path;
   }
 else
   { }
