@@ -45,9 +45,6 @@
     };
   };
   services.resolved.enable = true;
-  services.pulseaudio.extraModules = with pkgs; [
-    pulseaudio-modules-bt
-  ];
 
   services.haveged.enable = false;
   # systemd.services.haveged.unitConfig.ConditionKernelVersion = lib.mkIf (config.services.haveged.enable) (lib.mkForce ">5.6");

@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 let
-  isEnable = true;
+  isEnable = false;
 
   # chrome with chaining proxy
   vpn-chome = (

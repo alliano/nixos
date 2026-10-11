@@ -34,10 +34,10 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    udisks
-    fuse
-    fuse3
-    simple-mtpfs
+    # udisks
+    # fuse
+    # fuse3
+    # simple-mtpfs
   ]++aliases;
   services.udisks2.enable = true;
   services.udisks2.mountOnMedia = false;

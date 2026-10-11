@@ -11,13 +11,5 @@
     }
   },
   "plugin": [
-    "opencode-antigravity-auth",
-    "oh-my-opencode",
-    "@tarquinen/opencode-dcp",
-    "opencode-supermemory",
-    "@ramtinj95/opencode-tokenscope",
-    "opencode-wakatime",
-    "opencode-sync-plugin",
-    "cc-safety-net"
   ],
 }

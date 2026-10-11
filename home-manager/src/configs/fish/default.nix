@@ -12,6 +12,7 @@ lib.mkIf (isEnable) {
     enable = true;
     shellInit = ''
       # fish config
+      fish_add_path $HOME/.local/bin
       set --universal pure_separate_prompt_on_error true;
       set --universal pure_symbol_ssh_prefix "<=>"
       set --universal pure_enable_nixdevshell true

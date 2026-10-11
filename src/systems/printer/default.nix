@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services.printing = {
-    enable = true;
+    enable = false;
     # drivers = [ pkgs.hplip ];
   };
   hardware.sane = {
@@ -10,7 +10,7 @@
   };
   programs.system-config-printer.enable = true;
   environment.systemPackages = [
-    pkgs.hplip
-    pkgs.gutenprint
+    # pkgs.hplip
+    # pkgs.gutenprint
   ];
 }

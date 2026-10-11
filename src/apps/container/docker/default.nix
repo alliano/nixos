@@ -187,7 +187,7 @@ in
   };
 
   virtualisation.libvirtd = {
-    enable = true;
+    enable = false;
     nss = {
       enable = true;
       enableGuest = true;

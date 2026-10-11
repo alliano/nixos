@@ -17,9 +17,9 @@ rec {
 
   users.users = rec {
     i = {
-      name = "i";
+      name = "kim";
       group = "developer";
-      description = "Irda Islakhu Afa";
+      description = "Abdillah kim";
       isNormalUser = true;
       extraGroups = [
         "docker"
