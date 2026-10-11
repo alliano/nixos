@@ -3,7 +3,10 @@
   # Use the systemd-boot EFI boot loader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # xanmod, not zen: 6.12 LTS base, 250Hz tick (better battery on a laptop) and
+  # DEFAULT_BBR baked in, which the proxychains/sshuttle setup relies on. zen
+  # would silently fall back to cubic.
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelModules = [ "kvm-linux" ];
 
   # disable power save for sound driver

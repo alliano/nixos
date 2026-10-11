@@ -1,6 +1,6 @@
 { lib, pkgs, ... }:
 let
-  isEnable = true;
+  isEnable = false;
 in
 lib.mkIf (isEnable) {
   environment.systemPackages = [
