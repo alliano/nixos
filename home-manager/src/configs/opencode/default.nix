@@ -2,8 +2,8 @@
 let
   isEnable = false;
   fetchedPinnedPkgs = builtins.fetchTarball rec {
-    url = "https://github.com/NixOS/nixpkgs/archive/da289b19d0cbe59c3d3a060bcc990dc955124c64.tar.gz";
-    sha256 = "0yw56b5xvf4vjbn6ss5g7ibnrsadmy10qhggw5h0ncx2klv7827m";
+    url = "https://github.com/NixOS/nixpkgs/archive/243895692ae2a2fbd08a05141462c0cc0d3ca10f.tar.gz";
+    sha256 = "1x375yl26aw8gwdcm7jqpc5c87dz8hizhxkwzkfrjf60cqd0ibg0";
   };
   pinnedPkgs = import fetchedPinnedPkgs {
     inherit (pkgs) system config;

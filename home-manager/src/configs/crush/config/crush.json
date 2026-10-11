@@ -1,0 +1,24 @@
+{
+  "$schema": "https://charm.land/crush.json",
+  "providers": {
+    "zai": {
+      "api_key": "$(cat ~/.secrets/zai)"
+    }
+  },
+  "models": {
+    "large": { "model": "glm-5.2", "provider": "zai", "max_tokens": 131072 },
+    "small": { "model": "glm-5.2", "provider": "zai" }
+  },
+  "lsp": {
+    "nix": { "command": "nil" },
+    "go": { "command": "gopls" },
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": ["--stdio"]
+    }
+  },
+  "options": {
+    "tui": { "compact_mode": true },
+    "debug": false
+  }
+}

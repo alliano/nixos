@@ -1,9 +1,10 @@
-{ config, ... }: rec{
+{ config, pkgs, ... }:
+rec {
   isEnableAutoStart = true;
   dirName = "hypr";
-  dir = builtins.toPath "/home/i/.config/${dirName}";
+  dir = builtins.toPath "${config.home.homeDirectory}/.config/${dirName}";
   wallpaper = rec {
-    name = "wallpaper.png";
+    name = "astralbed.png";
     path = builtins.toPath ./assets/${name};
   };
   locker = {

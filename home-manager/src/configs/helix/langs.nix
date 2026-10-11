@@ -7,9 +7,9 @@
       "typos"
     ];
   };
-  java = true;
-  php = true;
-  go = true;
+  java = false;
+  php = false;
+  go = false;
   js = true;
   ts = true;
   rust = true;
@@ -18,21 +18,21 @@
   nix = true;
   yaml = true;
   kubernetes = false;
-  json = true;
+  json = false;
   css = true;
   html = true;
-  markdown = true;
+  markdown = false;
   helix-gpt = true;
-  scls = true; # Simple Completion Language Server, a autocomplete for plain text from buffer
-  sql = true; # require scls enable
+  scls = false; # Simple Completion Language Server, a autocomplete for plain text from buffer
+  sql = false; # require scls enable
   env = true; # require scls enable
-  svelte = true;
-  astro = true;
-  nginx = true;
-  vue = true;
-  cs = true;
+  svelte = false;
+  astro = false;
+  nginx = false;
+  vue = false;
+  cs = false;
   fish = true;
-  prisma = true;
-  typos = true;
+  prisma = false;
+  typos = false;
   sonarlint = false;
 }

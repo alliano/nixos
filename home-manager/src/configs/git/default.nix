@@ -6,8 +6,8 @@
 
   programs.git = {
     enable = true;
-    userName = "Irda Islakhu Afa";
-    userEmail = "irdhaislakhuafa@gmail.com";
+    userName = "alliano";
+    userEmail = "allianoanonymous@gmail.com";
     lfs = {
       enable = true;
     };

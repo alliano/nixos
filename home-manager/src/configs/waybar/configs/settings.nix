@@ -1,8 +1,10 @@
-{ pkgs, ... }: [
+{ pkgs, ... }:
+[
   {
     output = [
       "eDP-1"
       "HDMI-A-1"
+      "DP-1"
     ];
     layer = "top";
     position = "top"; # Waybar position (top|bottom|left|right)
@@ -24,6 +26,7 @@
       "custom/memory"
       "temperature"
       "backlight"
+      "power-profiles-daemon"
       "battery"
       "tray"
     ];
@@ -114,6 +117,19 @@
     cpu = {
       format = " {usage}%";
       tooltip = false;
+    };
+    # Click cycles performance -> balanced -> power-saver. The module talks to
+    # power-profiles-daemon over dbus, enabled in src/systems/power.
+    power-profiles-daemon = {
+      format = "{icon}";
+      tooltip = true;
+      tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+      format-icons = {
+        default = "";
+        performance = "";
+        balanced = "";
+        power-saver = "";
+      };
     };
     temperature = {
       # "thermal-zone= 2,

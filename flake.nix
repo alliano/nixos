@@ -4,6 +4,9 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/9755fc6210088c24e6a0d95d484776c6dcad4e3d";
 
+    # newer nixpkgs, only for packages missing in the main pin (e.g. winboat)
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2";
+
     # nix home manager
     home-manager = {
       url = "github:nix-community/home-manager/35b98d20ca8f4ca1f6a2c30b8a2c8bb305a36d84";
@@ -54,7 +57,7 @@
             ./home-manager/home.nix
             {
               home = rec {
-                username = "i";
+                username = "kim";
                 homeDirectory = "/home/${username}";
                 stateVersion = "25.05";
               };

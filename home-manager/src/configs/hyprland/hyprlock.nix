@@ -1,6 +1,6 @@
 { pkgs, config, ... }:
 let
-  settings = import ./settings.nix { inherit config; };
+  settings = import ./settings.nix { inherit config pkgs; };
 in
 {
   home.file.".config/${settings.dirName}/logo.png".source = settings.locker.image.path;
@@ -10,6 +10,16 @@ in
       globalPosition = 50;
     in
     {
+      auth = {
+        fingerprint = {
+          enabled = true;
+          ready_message = "Scan fingerprint to unlock";
+          present_message = "Scanning fingerprint";
+        };
+      };
+      animations = {
+        enable = true;
+      };
       general = {
         disable_loading_bar = false;
         grace = 0;
@@ -19,7 +29,7 @@ in
         ignore_empty_input = true;
       };
       background = {
-        path = "${settings.dir}/wallpaper.png";
+        path = "${settings.dir}/${settings.wallpaper.name}";
         blur_size = 8;
         blur_passes = 3;
       };
@@ -36,29 +46,33 @@ in
         halign = "center";
         valign = "center";
       };
-      label = [{
-        text = "Hi there, $DESC";
-        text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
-        color = "rgba(200, 200, 200, 1.0)";
-        font_size = 20;
-        font_family = "Noto Sans";
-        rotate = 0; # degrees, counter-clockwise
-        position = "0, ${toString (-130 + globalPosition)}";
-        halign = "center";
-        valign = "center";
-      }];
-      input-field = [{
-        size = "200, 40";
-        position = "0, ${toString (-190 + globalPosition)}";
-        dots_center = true;
-        fade_on_empty = true;
-        font_color = "rgb(202, 211, 245)";
-        inner_color = "rgb(91, 96, 120)";
-        outer_color = "rgb(24, 25, 38)";
-        outline_thickness = 1;
-        placeholder_text = ''Password...'';
-        shadow_passes = 1;
-      }];
+      label = [
+        {
+          text = "Hi there, $DESC";
+          text_align = "center"; # center/right or any value for default left. multi-line text alignment inside label container
+          color = "rgba(200, 200, 200, 1.0)";
+          font_size = 20;
+          font_family = "Noto Sans";
+          rotate = 0; # degrees, counter-clockwise
+          position = "0, ${toString (-130 + globalPosition)}";
+          halign = "center";
+          valign = "center";
+        }
+      ];
+      input-field = [
+        {
+          size = "200, 40";
+          position = "0, ${toString (-190 + globalPosition)}";
+          dots_center = true;
+          fade_on_empty = true;
+          font_color = "rgb(202, 211, 245)";
+          inner_color = "rgb(91, 96, 120)";
+          outer_color = "rgb(24, 25, 38)";
+          outline_thickness = 1;
+          placeholder_text = ''Password...'';
+          shadow_passes = 1;
+        }
+      ];
     }
   );
 }
