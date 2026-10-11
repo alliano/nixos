@@ -18,7 +18,10 @@
 
   networking.hostName = "developer";
   networking.useNetworkd = false;
-  networking.useDHCP = true;
+  # false, so no dhcpcd unit is generated at all: iwd already does DHCP via
+  # EnableNetworkConfiguration below. With true, dhcpcd runs unrestricted and
+  # fights iwd over wlan0's lease/routes, and probes the docker bridges too.
+  networking.useDHCP = false;
 
   # Force disable power saving at the kernel driver level (change iwlwifi if using AMD/Realtek)
   boot.extraModprobeConfig = ''
