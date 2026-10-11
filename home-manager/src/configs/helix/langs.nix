@@ -26,7 +26,7 @@
   scls = false; # Simple Completion Language Server, a autocomplete for plain text from buffer
   sql = false; # require scls enable
   env = true; # require scls enable
-  svelte = false;
+  svelte = true;
   astro = false;
   nginx = false;
   vue = false;
