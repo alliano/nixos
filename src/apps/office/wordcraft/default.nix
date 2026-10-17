@@ -10,7 +10,7 @@
 # building from source is cheaper to maintain than wrapping the AppImage with
 # appimageTools.
 let
-  isEnabled = true;
+  isEnabled = false;
 
   # The crates need a toolchain >= 1.95 (rust-version in Cargo.toml, edition
   # 2024) while the main nixpkgs pin still carries rustc 1.84, so the package set
