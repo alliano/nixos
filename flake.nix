@@ -7,6 +7,12 @@
     # newer nixpkgs, only for packages missing in the main pin (e.g. winboat)
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2";
 
+    # wordcraft is built from source and takes ~18 minutes, with no binary cache
+    # to fall back on. It gets its own pin so that bumping nixpkgs-unstable for
+    # some other package does not change its rustc and force a full recompile.
+    # Currently the same revision as nixpkgs-unstable, so both share a store.
+    nixpkgs-wordcraft.url = "github:NixOS/nixpkgs/3ed67ec0a4d3c7ab4ae1f04f8ee8df07bfa506a2";
+
     # nix home manager
     home-manager = {
       url = "github:nix-community/home-manager/35b98d20ca8f4ca1f6a2c30b8a2c8bb305a36d84";
