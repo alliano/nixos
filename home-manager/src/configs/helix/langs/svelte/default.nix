@@ -1,12 +1,13 @@
 { lib, pkgs, ... }:
 let
   langs = import ../../langs.nix { };
+  bun = import ../../bun.nix { inherit pkgs; };
   isEnable = langs.svelte;
 
 in
 lib.mkIf (isEnable) {
   home.packages = [
-    pkgs.bun
+    bun
     pkgs.typescript
     pkgs.svelte-language-server
   ];

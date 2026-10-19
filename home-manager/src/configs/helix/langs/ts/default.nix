@@ -5,6 +5,7 @@
 }:
 let
   langs = import ../../langs.nix { };
+  bun = import ../../bun.nix { inherit pkgs; };
   isEnable = langs.ts;
   features = {
     tsx = {
@@ -18,7 +19,7 @@ in
 lib.mkIf (isEnable) {
   home.packages = [
     pkgs.typescript-language-server
-    pkgs.bun
+    bun
     pkgs.vscode-langservers-extracted
     pkgs.vtsls
   ] ++ (if (features.tsx.enable) then features.tsx.pkgs else [ ]);

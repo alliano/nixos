@@ -1,12 +1,13 @@
 { pkgs, lib, ... }:
 let
   langs = import ../../langs.nix { };
+  bun = import ../../bun.nix { inherit pkgs; };
   isEnable = langs.vue;
 in
 lib.mkIf (isEnable) {
   home.packages = [
     pkgs.vue-language-server
-    pkgs.bun
+    bun
     pkgs.typescript
   ];
 
